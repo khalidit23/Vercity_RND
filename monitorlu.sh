@@ -5,6 +5,8 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+export DISPLAY=:0
+
 gnome-screensaver-command -l
 
 sleep 10
