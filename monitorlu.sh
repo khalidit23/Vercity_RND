@@ -5,11 +5,11 @@ if [ "$EUID" -eq 0 ]; then
   target_user="admin"
   
   su -l "$target_user"
+  exit
+fi
+
   gnome-screensaver-command -l
 
   sleep 10
 
   gnome-screensaver-command -d
-  exit
-fi
-
