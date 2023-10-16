@@ -5,4 +5,6 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+#test check
+
 gnome-screensaver-command -l
