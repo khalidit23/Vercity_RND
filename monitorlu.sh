@@ -2,12 +2,12 @@
 
 # Lock the screen
 lock_screen() {
-    gnome-screensaver-command -l
+    xdg-screensaver lock
 }
 
 # Unlock the screen
 unlock_screen() {
-    gnome-screensaver-command -d
+    xdg-screensaver reset
 }
 
 # Check the command-line argument
