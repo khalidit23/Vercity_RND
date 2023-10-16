@@ -1,15 +1,27 @@
 #!/bin/bash
 
-if [ "$EUID" -eq 0 ]; then
-  echo "Exiting root mode..."
-  target_user="admin"
-  
-  su -l "$target_user"
-  exit
-fi
+# Lock the screen
+lock_screen() {
+    gnome-screensaver-command -l
+}
 
-  gnome-screensaver-command -l
+# Unlock the screen
+unlock_screen() {
+    gnome-screensaver-command -d
+}
 
-  sleep 10
+# Check the command-line argument
+case "$1" in
+    lock)
+        lock_screen
+        ;;
+    unlock)
+        unlock_screen
+        ;;
+    *)
+        echo "Usage: $0 {lock|unlock}"
+        exit 1
+        ;;
+esac
 
-  gnome-screensaver-command -d
+exit 0
