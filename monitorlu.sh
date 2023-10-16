@@ -1,11 +1,12 @@
 #!/bin/bash
 
 if [ "$EUID" -eq 0 ]; then
-  echo "This script should not be run as root. Exiting root mode."
-  exit 1
+  echo "Exiting root mode..."
+  target_user="admin"
+  
+  su -l "$target_user" -c "gnome-screensaver-command -l"
+  exit
 fi
-
-export DISPLAY=:0
 
 gnome-screensaver-command -l
 
