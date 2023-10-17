@@ -1,15 +1,6 @@
 #!/bin/bash
+sudo -u admin123 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" gnome-screensaver-command -l
 
-if [ "$EUID" -eq 0 ]; then
-  echo "Exiting root mode..."
-  target_user="admin"
-  
-  su -l "$target_user"
-  exit
-fi
+sleep 10
 
-  gnome-screensaver-command -l
-
-  sleep 10
-
-  gnome-screensaver-command -d
+sudo -u admin123 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" gnome-screensaver-command -d
