@@ -1,6 +1,8 @@
 #!/bin/bash
-sudo -u admin123 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" gnome-screensaver-command -d
+cd /home/admin/ansible
+
+ansible all -a "apt install -y gnome-screensaver" -u admin
 
 sleep 50
 
-sudo -u admin123 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" gnome-screensaver-command -l
+ansible all -a "sudo -u admin DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" gnome-screensaver-command -d" -u admin
